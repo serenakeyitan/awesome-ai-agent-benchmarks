@@ -6,6 +6,9 @@ Evaluating AI agents is hard: a single accuracy number rarely captures whether a
 
 > Curated by the [first-tree](https://github.com/unispark-inc/first-tree?ref=awesome-ai-agent-benchmarks) team.
 
+### 🌳 use artifacts in [first-tree](https://first-tree.ai/?utm_source=github&utm_medium=readme&utm_campaign=awesome-ai-agent-benchmarks-site) for **free** — the most efficient way for **human & agent collaboration** :D
+
+
 ---
 
 ## Contents
