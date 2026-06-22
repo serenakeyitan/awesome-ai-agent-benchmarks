@@ -1,0 +1,3 @@
+# Sites that 403/timeout to non-browser clients (links are valid in a browser)
+https://www.science.org/.*
+https://docs.google.com/.*
