@@ -1,8 +1,8 @@
 # Awesome AI Agent Benchmarks
 
-A curated, dimension-organized index of **78 benchmarks** for evaluating LLM-based AI agents — coding, web, computer use, tool use, reasoning, multi-agent, science, safety, and real-world work.
+A curated, dimension-organized index of **52 benchmarks** for evaluating LLM-based AI agents — coding, web, computer use, tool use, reasoning, multi-agent, science, safety, and real-world work.
 
-Evaluating AI agents is hard: a single accuracy number rarely captures whether a system can fix a real GitHub issue, drive a live browser, recover from a prompt injection, or plan a trip under constraints. This list organizes the benchmarks that matter across **10 capability dimensions** — from the headline evals reported in every frontier model card (SWE-bench Verified, τ-bench, GAIA, OSWorld) to the frontier stress-tests where even the best agents score in the single digits. Each entry says what it actually tests, with links to the paper, code, and live leaderboard.
+Evaluating AI agents is hard: a single accuracy number rarely captures whether a system can fix a real GitHub issue, drive a live browser, recover from a prompt injection, or plan a trip under constraints. This list organizes the benchmarks that matter across **9 capability dimensions** — from the headline evals reported in every frontier model card (SWE-bench Verified, τ-bench, GAIA, OSWorld) to the frontier stress-tests where even the best agents score in the single digits. Each entry says what it actually tests, with links to the paper, code, and live leaderboard.
 
 > Curated by the [first-tree](https://github.com/unispark-inc/first-tree?ref=awesome-ai-agent-benchmarks) team.
 
@@ -11,16 +11,16 @@ Evaluating AI agents is hard: a single accuracy number rarely captures whether a
 ## Contents
 
 - [The index (all benchmarks, by influence tier)](#the-index)
-- [Coding & Software Engineering](#coding--software-engineering) (9)
-- [Web Browsing & Navigation](#web-browsing--navigation) (9)
-- [Computer Use (GUI / OS)](#computer-use-gui--os) (7)
-- [Tool Use & Function Calling](#tool-use--function-calling) (7)
-- [Reasoning & Planning](#reasoning--planning) (6)
-- [Multi-Agent](#multi-agent) (6)
-- [Science & Research](#science--research) (9)
-- [Safety, Security & Robustness](#safety-security--robustness) (12)
+- [Coding & Software Engineering](#coding--software-engineering) (8)
+- [Web Browsing & Navigation](#web-browsing--navigation) (7)
+- [Computer Use (GUI / OS)](#computer-use-gui--os) (4)
+- [Tool Use & Function Calling](#tool-use--function-calling) (5)
+- [Reasoning & Planning](#reasoning--planning) (4)
+- [Multi-Agent](#multi-agent) (4)
+- [Science & Research](#science--research) (4)
+- [Safety, Security & Robustness](#safety-security--robustness) (6)
 - [Cybersecurity (Offensive)](#cybersecurity-offensive) (4)
-- [General & Real-World Work](#general--real-world-work) (9)
+- [General & Real-World Work](#general--real-world-work) (6)
 
 ---
 
@@ -28,11 +28,10 @@ Evaluating AI agents is hard: a single accuracy number rarely captures whether a
 
 Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflects real-world adoption — Tier 1 are the evals reported in frontier model cards and used as the default for their capability; Tier 2 are widely used and on active leaderboards; Tier 3 are emerging or niche. (Stars marked `*` belong to a parent framework, not the benchmark alone, so they over-count influence — tier is the more honest signal.)
 
-### Tier 1 — frontier model-card standard  (29)
+### Tier 1 — frontier model-card standard  (27)
 
 | Benchmark | Dimension | What it tests | Tasks | Stars |
 |---|---|---|---|---:|
-| [Aider Polyglot](https://github.com/Aider-AI/aider) | Coding | Complete 225 hard Exercism exercises across C++, Go, Java, JavaS… | 225 | 46.6k* |
 | [BFCL (Berkeley Function-Calling Leaderboard)](https://github.com/ShishirPatil/gorilla) | Tool Use | Given a natural-language request and a set of function/API schem… | thousands (V1-V4, ~3700+ across categories) | 12.9k* |
 | [SWE-bench](https://github.com/SWE-bench/SWE-bench) | Coding | Given a real GitHub issue and the full repository, the agent mus… | 2294 | 5.2k |
 | [SWE-bench Verified](https://github.com/SWE-bench/SWE-bench) | Coding | Same task as SWE-bench (resolve a real GitHub issue via a patch… | 500 | 5.2k |
@@ -59,57 +58,36 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [SOTOPIA](https://github.com/sotopia-lab/sotopia) | Multi-Agent | Two LLM agents role-play assigned characters with private, somet… | 90 social scenarios | 312 |
 | [CyBench](https://github.com/andyzorigin/cybench) | Cybersecurity | Evaluates agents on 40 professional-level Capture-the-Flag (CTF)… | 40 CTF tasks | 266 |
 | [SciCode](https://github.com/scicode-bench/SciCode) | Science | Given a real scientific research problem decomposed into subprob… | 80 problems (338 subproblems) | 208 |
-| [InjecAgent](https://github.com/uiuc-kang-lab/InjecAgent) | Safety | The tool-integrated agent processes content returned by tools th… | 1,054 test cases, 17 user tools, 62 attacker tools | 144 |
 | [GAIA](https://arxiv.org/abs/2311.12983) | Web | Answer real-world assistant questions that require multi-step re… | 466 | — |
 
-### Tier 2 — widely used  (20)
+### Tier 2 — widely used  (11)
 
 | Benchmark | Dimension | What it tests | Tasks | Stars |
 |---|---|---|---|---:|
 | [ToolBench (ToolLLM)](https://github.com/OpenBMB/ToolBench) | Tool Use | Given user instructions, the agent must select and chain calls a… | 16,464 APIs / 3,451 tools; ~126k instruction-solution pairs | 5.7k* |
-| [API-Bank](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/api-bank) | Tool Use | A runnable benchmark where the agent must plan, retrieve, and ca… | 73 APIs, 314 dialogues, 753 API calls (eval set) | 1.6k |
 | [Agents' Last Exam (ALE)](https://github.com/rdi-berkeley/agents-last-exam) | General | Asks agents to perform economically valuable, expert-sourced wor… | 1,500+ across 55 occupations | 721 |
 | [TravelPlanner](https://github.com/OSU-NLP-Group/TravelPlanner) | Reasoning | Act as a travel-planning agent that queries a sandbox of ~4M rec… | 1,225 planning queries with reference plans | 523 |
 | [BigCodeBench](https://github.com/bigcode-project/bigcodebench) | Coding | Write Python functions that correctly compose multiple library/A… | 1140 | 509 |
-| [AgentBoard](https://github.com/hkust-nlp/AgentBoard) | Reasoning | Run an LLM agent through 9 multi-turn, partially-observable task… | 9 tasks across 1013 environments | 420 |
 | [Multi-SWE-bench](https://github.com/multi-swe-bench/multi-swe-bench) | Coding | Resolve real GitHub issues via patches that pass hidden tests, b… | 1632 | 341 |
 | [CVE-Bench](https://github.com/uiuc-kang-lab/cve-bench) | Cybersecurity | Tests whether an agent can exploit real-world web-application vu… | 40 CVEs | 240 |
 | [AgentPoison](https://github.com/AI-secure/AgentPoison) | Safety | Red-teams a RAG/memory-augmented LLM agent by poisoning its know… | <0.1% poison rate, 80%+ attack success | 222 |
 | [Online-Mind2Web](https://github.com/OSU-NLP-Group/Online-Mind2Web) | Web | Execute 300 realistic tasks on 136 live websites in an online se… | 300 | 182 |
-| [DiscoveryBench](https://github.com/allenai/discoverybench) | Science | Given one or more datasets and a discovery goal, the agent must… | 264 real + 903 synthetic | 148 |
 | [ScienceAgentBench](https://github.com/OSU-NLP-Group/ScienceAgentBench) | Science | Given a real scientific data-analysis task, the agent must write… | 102 | 141 |
-| [BixBench](https://github.com/Future-House/BixBench) | Science | Given heterogeneous real biological datasets and an open-ended r… | 53 scenarios (296 questions) | 124 |
-| [R-Judge](https://github.com/Lordog/R-Judge) | Safety | Given a multi-turn agent interaction record, the model must judg… | 569 multi-turn records, 27 risk scenarios, 10 risk types | 105 |
-| [RedCode](https://github.com/AI-secure/RedCode) | Safety | A code agent is given prompts to execute or generate code, and i… | 4,050 execution instances + 160 generation prompts (~4,000+ total) | 82 |
-| [CORE-Bench](https://github.com/siegelz/core-bench) | Science | Given a published paper's code and data in a Docker environment,… | 270 | 77 |
-| [AssistantBench](https://github.com/oriyor/assistantbench) | Web | Solve realistic, time-consuming open-web tasks (e.g. 'which near… | 214 | 71 |
 | [OS-Harm](https://github.com/tml-epfl/os-harm) | Safety | Measures the safety of computer-use (GUI) agents across 150 task… | 150 | 67 |
-| [NATURAL PLAN](https://github.com/google-deepmind/natural-plan) | Reasoning | Solve natural-language planning problems in Trip Planning, Meeti… | 3 task families (Trip, Meeting, Calendar planning) | 57 |
 | [BountyBench](https://github.com/cybench/BountyBench) | Cybersecurity | Grounds agent cyber capability in real money: 25 real systems an… | 25 systems, 40 bounties | 9 |
 
-### Tier 3 — emerging / niche  (19)
+### Tier 3 — emerging / niche  (8)
 
 | Benchmark | Dimension | What it tests | Tasks | Stars |
 |---|---|---|---|---:|
-| [CICERO / Diplomacy evaluation](https://github.com/facebookresearch/diplomacy_cicero) | Multi-Agent | An agent must play full-press Diplomacy: simultaneously negotiat… | 1 game (7 players) | 1.4k |
 | [tau2-bench (τ²-bench)](https://github.com/sierra-research/tau2-bench) | Tool Use | Extends tau-bench to dual-control settings where both the agent… | hundreds across telecom/retail/airline | 1.4k |
 | [WindowsAgentArena (WAA)](https://github.com/microsoft/WindowsAgentArena) | Computer Use | Complete 154 multi-step Windows-OS tasks across real apps (Offic… | 154 | 874 |
-| [MCP-Universe](https://github.com/SalesforceAIResearch/MCP-Universe) | Tool Use | The agent connects to 11 real, live Model Context Protocol (MCP)… | 231 | 592 |
-| [Gaia2 (Meta Agents Research Environments / ARE)](https://github.com/facebookresearch/meta-agents-research-environments) | General | Operate across 800 scenarios in 10 simulated 'universes' with 11… | 800 | 522 |
 | [ScreenSpot-Pro](https://github.com/likaixin2000/ScreenSpot-Pro-GUI-Grounding) | Computer Use | Locate tiny, cluttered UI targets from instructions on ultra-hig… | 1581 | 378 |
 | [Agent Security Bench (ASB)](https://github.com/agiresearch/ASB) | Safety | Across 10 agent scenarios (e-commerce, finance, autonomous drivi… | ~90,000 test cases; 10 scenarios, 400+ tools, 27 attack/defense methods | 264 |
 | [ToolSandbox](https://github.com/apple/ToolSandbox) | Tool Use | A stateful, conversational benchmark with an on-policy LLM user… | 1032 test scenarios | 261 |
-| [WorkArena / WorkArena++](https://github.com/ServiceNow/WorkArena) | Web | Perform common enterprise knowledge-work tasks on the live Servi… | 33 tasks / 19,912 instances (WorkArena L1); 682 (WorkArena++) | 256 |
-| [Agent-SafetyBench](https://github.com/thu-coai/Agent-SafetyBench) | Safety | Across hundreds of interactive tool environments the agent faces… | 2,000 test cases across 349 environments | 144 |
-| [RE-Bench](https://github.com/METR/ai-rd-tasks) | Science | Given open-ended ML research-engineering environments (e.g. fit… | 7 | 141 |
-| [CRMArena / CRMArena-Pro](https://github.com/SalesforceAIResearch/CRMArena) | General | Perform expert-validated professional CRM tasks (service, sales,… | 19 task types (CRMArena-Pro) | 141 |
-| [AstaBench](https://github.com/allenai/asta-bench) | Science | The agent must complete entire scientific research workflows — l… | 2400+ across 11 benchmarks | 111 |
 | [GAMA-Bench](https://github.com/CUHK-ARISE/GAMABench) | Multi-Agent | LLMs act as players in eight classical multi-agent game-theory g… | 8 game-theory games | 97 |
 | [MultiAgentBench (MARBLE)](https://github.com/MultiagentBench/MARBLE) | Multi-Agent | LLM agents must coordinate (and in some tasks compete) across ei… | 8 tasks / scenarios | 51 |
-| [Werewolf Arena](https://github.com/google/werewolf_arena) | Multi-Agent | Eight LLM players (Seer, Doctor, 2 Werewolves, 4 Villagers) comp… | 1 game (8 roles) | 48 |
-| [OpenAgentSafety](https://github.com/sani903/OpenAgentSafety) | Safety | Evaluates agent safety in realistic multi-tool environments acro… | 350+ | 38 |
 | [Collab-Overcooked](https://github.com/YusaeMeow/Collab-Overcooked) | Multi-Agent | Two LLM agents must cooperate in an extended Overcooked-AI kitch… | 30 open-ended tasks | 35 |
-| [SafeArena](https://github.com/McGill-NLP/safearena) | Safety | A web agent operating in self-hosted WebArena sites is given mat… | 500 tasks (250 safe + 250 harmful) across 5 harm categories | 23 |
 
 <sub>`*` = star count is for the parent framework/repo, not the benchmark alone.</sub>
 
@@ -118,13 +96,6 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 ## Coding & Software Engineering
 
 *Resolving real issues, writing code, building libraries, working in the terminal.*
-
-### Aider Polyglot `T1`
-Complete 225 hard Exercism exercises across C++, Go, Java, JavaScript, Python and Rust, applying edits in a specified diff format with one retry shown unit-test feedback. · **225 tasks**
-
-> Highly influential practitioner benchmark from the Aider project; measures both correctness and whether models can edit code in the right format. Frequently cited in frontier-model launches.
-
-[code](https://github.com/Aider-AI/aider) · [leaderboard](https://aider.chat/docs/leaderboards/)
 
 ### SWE-bench `T1`
 Given a real GitHub issue and the full repository, the agent must produce a code patch (diff) that resolves the issue and passes the repo's hidden test suite. · **2294 tasks**
@@ -237,20 +208,6 @@ Execute 300 realistic tasks on 136 live websites in an online setting, judged by
 
 [paper](https://arxiv.org/abs/2504.01382) · [code](https://github.com/OSU-NLP-Group/Online-Mind2Web) · [leaderboard](https://huggingface.co/datasets/osunlp/Online-Mind2Web)
 
-### AssistantBench `T2`
-Solve realistic, time-consuming open-web tasks (e.g. 'which nearby gyms have weekend classes before 7AM?') that require browsing many pages across hundreds of real sites and returning a precise answer. · **214 tasks**
-
-> EMNLP 2024; a hard open-web information-seeking benchmark (525+ pages across 258 sites) where no system exceeds ~26 points. Integrated into BrowserGym and used to probe long-horizon browsing.
-
-[paper](https://arxiv.org/abs/2407.15711) · [code](https://github.com/oriyor/assistantbench) · [leaderboard](https://huggingface.co/spaces/AssistantBench/leaderboard)
-
-### WorkArena / WorkArena++ `T3`
-Perform common enterprise knowledge-work tasks on the live ServiceNow platform (filtering lists, filling forms, service catalog, dashboards, menu navigation), plus compositional multi-step tasks in WorkArena++. · **33 tasks / 19,912 instances (WorkArena L1); 682 (WorkArena++) tasks**
-
-> ICML 2024 (L1) and NeurIPS 2024 (WorkArena++); the leading enterprise/UI web-agent benchmark, integrated into BrowserGym. Best agents only ~55%, highlighting enterprise-software difficulty.
-
-[paper](https://arxiv.org/abs/2403.07718) · [code](https://github.com/ServiceNow/WorkArena) · [leaderboard](https://servicenow.github.io/WorkArena/)
-
 ---
 
 ## Computer Use (GUI / OS)
@@ -263,27 +220,6 @@ Execute 369 open-ended real-computer tasks (file ops, desktop apps, web, multi-a
 > The de facto standard for desktop computer-use agents. Used in model cards/blogs by Anthropic, OpenAI, and others; OSWorld-Verified is the canonical leaderboard. Human ~72% vs early agents ~12%, now ~60%+.
 
 [paper](https://arxiv.org/abs/2404.07972) · [code](https://github.com/xlang-ai/OSWorld) · [leaderboard](https://os-world.github.io/)
-
-### WebArena `T1`
-Complete 812 long-horizon web tasks (shopping, GitLab, Reddit-style forum, CMS, maps) in fully functional self-hosted web apps, scored by functional correctness of the end state. · **812 tasks**
-
-> The dominant reproducible web-agent benchmark; dozens of agents compete on its leaderboard. Human ~78% vs original GPT-4 agent ~14%, now 70%+.
-
-[paper](https://arxiv.org/abs/2307.13854) · [code](https://github.com/web-arena-x/webarena) · [leaderboard](https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ)
-
-### WebVoyager `T1`
-Drive a real browser end-to-end against 15 live production websites (Amazon, Google Flights, BBC, etc.) to complete 643 real-world tasks, auto-evaluated by a GPT-4V judge over the screenshot trajectory. · **643 tasks**
-
-> Widely-used live-web multimodal agent benchmark; popularized the screenshot-based browsing agent and the VLM-as-judge evaluation protocol (85% agreement with humans).
-
-[paper](https://arxiv.org/abs/2401.13919) · [code](https://github.com/MinorJerry/WebVoyager)
-
-### Mind2Web `T1`
-Predict the correct action sequence (element selection + operation) to complete 2,000+ crowd-sourced open-ended tasks across 137 real websites spanning 31 domains. · **2350 tasks**
-
-> NeurIPS 2023 Spotlight; the first generalist-web-agent benchmark and a foundational dataset for training/evaluating web action-prediction models, very heavily cited.
-
-[paper](https://arxiv.org/abs/2306.06070) · [code](https://github.com/OSU-NLP-Group/Mind2Web)
 
 ### AndroidWorld `T1`
 Complete 116 programmatic tasks across 20 real Android apps on a live emulator, with dynamically randomized parameters yielding millions of task variations and reward signals. · **116 tasks**
@@ -333,26 +269,12 @@ Given user instructions, the agent must select and chain calls across 16,000+ re
 
 [paper](https://arxiv.org/abs/2307.16789) · [code](https://github.com/OpenBMB/ToolBench)
 
-### API-Bank `T2`
-A runnable benchmark where the agent must plan, retrieve, and call from a pool of 73 executable APIs across multi-turn tool-use dialogues, scored on correct API calls and response quality. · **73 APIs, 314 dialogues, 753 API calls (eval set) tasks**
-
-> EMNLP 2023; one of the earliest and most-cited tool-augmented-LLM benchmarks with a runnable evaluation system, frequently used as a baseline for planning/retrieval/calling abilities.
-
-[paper](https://arxiv.org/abs/2304.08244) · [code](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/api-bank)
-
 ### tau2-bench (τ²-bench) `T3`
 Extends tau-bench to dual-control settings where both the agent AND the simulated user can call tools (modeled as a Dec-POMDP), with a Telecom troubleshooting domain plus retail and airline and a compositional task generator. · **hundreds across telecom/retail/airline tasks**
 
 > The 2025 successor to tau-bench; now the headline conversational tool-use eval reported in current frontier model launches. Adds collaborative dual-control troubleshooting that single-agent benchmarks miss.
 
 [paper](https://arxiv.org/abs/2506.07982) · [code](https://github.com/sierra-research/tau2-bench) · [leaderboard](https://www.taubench.com/)
-
-### MCP-Universe `T3`
-The agent connects to 11 real, live Model Context Protocol (MCP) servers across 6 domains (maps, GitHub repo management, finance, 3D design, browser automation, web search) and must discover unknown tools and complete long-horizon real-world tasks with execution-based grading. · **231 tasks**
-
-> From Salesforce AI Research (2025); the first comprehensive benchmark over real running MCP servers, now a key reference for evaluating agents on the live MCP ecosystem (even top models like GPT-5 score under 50%).
-
-[paper](https://arxiv.org/abs/2508.14704) · [code](https://github.com/SalesforceAIResearch/MCP-Universe) · [leaderboard](https://mcp-universe.github.io/)
 
 ### ToolSandbox `T3`
 A stateful, conversational benchmark with an on-policy LLM user simulator where tools mutate shared world state and have implicit inter-tool dependencies, scored via milestone/minefield checks over the trajectory. · **1032 test scenarios tasks**
@@ -395,20 +317,6 @@ Act as a travel-planning agent that queries a sandbox of ~4M records via tools a
 
 [paper](https://arxiv.org/abs/2402.01622) · [code](https://github.com/OSU-NLP-Group/TravelPlanner) · [leaderboard](https://huggingface.co/spaces/osunlp/TravelPlannerLeaderboard)
 
-### AgentBoard `T2`
-Run an LLM agent through 9 multi-turn, partially-observable task families (embodied AI, games, web, tool use) and score fine-grained progress rate rather than only final success. · **9 tasks across 1013 environments tasks**
-
-> NeurIPS 2024 Oral (HKUST NLP). Introduced the influential per-step 'progress rate' metric for analytical agent evaluation, distinguishing it from pass/fail benchmarks; results correlate with reasoning/coding ability.
-
-[paper](https://arxiv.org/abs/2401.13178) · [code](https://github.com/hkust-nlp/AgentBoard) · [leaderboard](https://hkust-nlp.github.io/agentboard/static/leaderboard.html)
-
-### NATURAL PLAN `T2`
-Solve natural-language planning problems in Trip Planning, Meeting Planning, and Calendar Scheduling, given tool outputs (Flights/Maps/Calendar) as context, without needing a live tool-use environment. · **3 task families (Trip, Meeting, Calendar planning) tasks**
-
-> From Google DeepMind; isolates pure planning ability and shows sharp degradation as constraints scale (all models <5% at 10 cities in Trip Planning). Frequently used to probe long-horizon constraint-satisfaction planning in frontier models.
-
-[paper](https://arxiv.org/abs/2406.04520) · [code](https://github.com/google-deepmind/natural-plan)
-
 ---
 
 ## Multi-Agent
@@ -421,13 +329,6 @@ Two LLM agents role-play assigned characters with private, sometimes-conflicting
 > ICLR 2024 spotlight; the de-facto standard for social/interactive multi-agent intelligence, widely cited and extended (SOTOPIA-pi, SOTOPIA-RL). SOTOPIA-Eval defines 7 social dimensions (BEL, REL, KNO, SEC, SOC, FIN, GOAL).
 
 [paper](https://arxiv.org/abs/2310.11667) · [code](https://github.com/sotopia-lab/sotopia) · [leaderboard](https://huggingface.co/datasets/cmu-lti/sotopia)
-
-### CICERO / Diplomacy evaluation `T3`
-An agent must play full-press Diplomacy: simultaneously negotiate, persuade, form and break alliances via free-form natural-language dialogue with six other players while executing strategic moves, evaluated by score and rank against human players in online games. · **1 game (7 players) tasks**
-
-> Meta AI's landmark result: CICERO reached the top 10% of human Diplomacy players, combining a language model with strategic planning/RL. The canonical benchmark for combined negotiation + strategic multi-agent play; recent 'Democratizing Diplomacy' (arXiv:2508.07485) turns it into a reusable harness for any LLM.
-
-[paper](https://arxiv.org/abs/2203.06647) · [code](https://github.com/facebookresearch/diplomacy_cicero)
 
 ### GAMA-Bench `T3`
 LLMs act as players in eight classical multi-agent game-theory games (across cooperation, betrayal, and sequential settings) under a dynamic scoring scheme that quantitatively measures their decision-making robustness, generalizability, and strategy in multi-agent environments. · **8 game-theory games tasks**
@@ -442,13 +343,6 @@ LLM agents must coordinate (and in some tasks compete) across eight tasks spanni
 > ACL 2025 Main. One of the most comprehensive purpose-built benchmarks for measuring both collaboration AND competition quality (not just task success) across coordination protocols; from UIUC's ulab.
 
 [paper](https://arxiv.org/abs/2503.01935) · [code](https://github.com/MultiagentBench/MARBLE)
-
-### Werewolf Arena `T3`
-Eight LLM players (Seer, Doctor, 2 Werewolves, 4 Villagers) compete in the Werewolf social-deduction game using a bidding-based dynamic turn-taking system, testing deception, deduction, and persuasion in an arena-style tournament between models. · **1 game (8 roles) tasks**
-
-> From Google Research; a prominent case study in evaluating LLMs via social deduction, introducing the bidding turn-taking mechanism and arena tournament format between Gemini and GPT models.
-
-[paper](https://arxiv.org/abs/2407.13943) · [code](https://github.com/google/werewolf_arena)
 
 ### Collab-Overcooked `T3`
 Two LLM agents must cooperate in an extended Overcooked-AI kitchen environment, communicating in natural language to complete 30 open-ended cooking tasks, scored with process-oriented metrics that probe fine-grained collaboration (not just final success). · **30 open-ended tasks tasks**
@@ -484,47 +378,12 @@ Given a real scientific research problem decomposed into subproblems, the agent 
 
 [paper](https://arxiv.org/abs/2407.13168) · [code](https://github.com/scicode-bench/SciCode) · [leaderboard](https://scicode-bench.github.io/)
 
-### DiscoveryBench `T2`
-Given one or more datasets and a discovery goal, the agent must derive a specific, supported hypothesis by running the full multi-step data-driven discovery workflow. · **264 real + 903 synthetic tasks**
-
-> From Allen Institute for AI; first benchmark to formalize multi-step data-driven discovery across 6 domains derived from published papers. Best system scores ~25%.
-
-[paper](https://arxiv.org/abs/2407.01725) · [code](https://github.com/allenai/discoverybench)
-
 ### ScienceAgentBench `T2`
 Given a real scientific data-analysis task, the agent must write a self-contained Python program that produces the correct result across bioinformatics, computational chemistry, GIS, and neuroscience. · **102 tasks**
 
 > ICLR 2025; 102 tasks extracted from 44 peer-reviewed papers, validated by 9 domain experts. Widely cited reference benchmark for data-driven scientific discovery; best agents solve only ~32%.
 
 [paper](https://arxiv.org/abs/2410.05080) · [code](https://github.com/OSU-NLP-Group/ScienceAgentBench) · [leaderboard](https://osu-nlp-group.github.io/ScienceAgentBench/)
-
-### BixBench `T2`
-Given heterogeneous real biological datasets and an open-ended research question, the agent must perform multi-step computational analysis in a Jupyter environment and interpret the results. · **53 scenarios (296 questions) tasks**
-
-> FutureHouse + ScienceMachine; derived from 60 real published bioinformatics notebooks. Frontier models (GPT-4o, Claude 3.5 Sonnet) reach only ~17% in open-answer mode.
-
-[paper](https://arxiv.org/abs/2503.00096) · [code](https://github.com/Future-House/BixBench)
-
-### CORE-Bench `T2`
-Given a published paper's code and data in a Docker environment, the agent must computationally reproduce the reported results and answer questions about them. · **270 tasks**
-
-> Princeton; 270 tasks from 90 papers across CS, social science, and medicine at 3 difficulty levels. Hosted on the Holistic Agent Leaderboard (HAL); a standard reproducibility eval.
-
-[paper](https://arxiv.org/abs/2409.11363) · [code](https://github.com/siegelz/core-bench) · [leaderboard](https://hal.cs.princeton.edu/corebench_hard)
-
-### RE-Bench `T3`
-Given open-ended ML research-engineering environments (e.g. fit a scaling law, optimize a GPU kernel), the agent must maximize a measurable score, benchmarked head-to-head against human experts. · **7 tasks**
-
-> METR; directly compares frontier agents against 61 human experts on AI R&D automation. Central to frontier-AI safety/capability evaluations; agents beat humans at 2h but lag at longer budgets.
-
-[paper](https://arxiv.org/abs/2411.15114) · [code](https://github.com/METR/ai-rd-tasks)
-
-### AstaBench `T3`
-The agent must complete entire scientific research workflows — literature search, code execution, data analysis, and end-to-end discovery — within a standardized, reproducible research environment. · **2400+ across 11 benchmarks tasks**
-
-> Allen Institute for AI (2025); a holistic suite whose leaderboard is the first to control for tools used and inference cost. Evaluated 57 agents; AI still far from solving research assistance.
-
-[paper](https://arxiv.org/abs/2510.21652) · [code](https://github.com/allenai/asta-bench) · [leaderboard](https://allenai.org/asta/bench)
 
 ---
 
@@ -553,33 +412,12 @@ Given an explicitly malicious multi-step request (e.g. fraud, cybercrime, harass
 
 [paper](https://arxiv.org/abs/2410.09024) · [code](https://github.com/UKGovernmentBEIS/inspect_evals) · [leaderboard](https://huggingface.co/datasets/ai-safety-institute/AgentHarm)
 
-### InjecAgent `T1`
-The tool-integrated agent processes content returned by tools that contains injected attacker instructions, and is scored on whether it executes attacks causing direct harm to the user or exfiltration of private data. · **1,054 test cases, 17 user tools, 62 attacker tools tasks**
-
-> Early and widely-cited indirect-prompt-injection benchmark for agents (ACL 2024 Findings); commonly used as a baseline alongside AgentDojo.
-
-[paper](https://arxiv.org/abs/2403.02691) · [code](https://github.com/uiuc-kang-lab/InjecAgent)
-
 ### AgentPoison `T2`
 Red-teams a RAG/memory-augmented LLM agent by poisoning its knowledge base or memory with a tiny number of crafted entries, then measures how reliably the backdoor triggers malicious actions. · **<0.1% poison rate, 80%+ attack success tasks**
 
 > NeurIPS 2024; Dawn Song (UC Berkeley) is a direct author. The canonical memory/knowledge-base poisoning attack benchmark for agentic RAG systems.
 
 [paper](https://arxiv.org/abs/2407.12784) · [code](https://github.com/AI-secure/AgentPoison)
-
-### R-Judge `T2`
-Given a multi-turn agent interaction record, the model must judge whether the agent's behavior was unsafe and identify the safety risk, testing risk awareness rather than content harmlessness. · **569 multi-turn records, 27 risk scenarios, 10 risk types tasks**
-
-> Standard benchmark for agent safety-risk awareness / LLM-as-safety-judge (EMNLP 2024 Findings); frequently used to evaluate guardrail and judge models.
-
-[paper](https://arxiv.org/abs/2401.10019) · [code](https://github.com/Lordog/R-Judge)
-
-### RedCode `T2`
-A code agent is given prompts to execute or generate code, and is scored on whether it recognizes and refuses risky operations (RedCode-Exec) and whether it declines to produce harmful software (RedCode-Gen). · **4,050 execution instances + 160 generation prompts (~4,000+ total) tasks**
-
-> Leading safety benchmark for code/coding agents (NeurIPS 2024 Datasets & Benchmarks); covers 25 vulnerability types across 8 domains with real Docker execution.
-
-[paper](https://arxiv.org/abs/2411.07781) · [code](https://github.com/AI-secure/RedCode) · [leaderboard](https://redcode-agent.github.io/)
 
 ### OS-Harm `T2`
 Measures the safety of computer-use (GUI) agents across 150 tasks spanning deliberate user misuse, prompt-injection attacks, and unprompted model misbehavior, judged by an automated safety evaluator. · **150 tasks**
@@ -594,27 +432,6 @@ Across 10 agent scenarios (e-commerce, finance, autonomous driving, etc.) the ag
 > Most comprehensive single framework formalizing agent attacks AND defenses; ~90,000 test cases; widely cited in agent-security surveys for covering injection, memory, and backdoor vectors together.
 
 [paper](https://arxiv.org/abs/2410.02644) · [code](https://github.com/agiresearch/ASB)
-
-### Agent-SafetyBench `T3`
-Across hundreds of interactive tool environments the agent faces tasks spanning 8 safety-risk categories, and is scored on whether its behavior avoids unsafe outcomes across 10 common failure modes. · **2,000 test cases across 349 environments tasks**
-
-> Broad, widely-cited agent safety benchmark from THU-CoAI; notable finding that none of 16 popular agents scored above 60% safety, attributing failures to weak robustness and risk awareness.
-
-[paper](https://arxiv.org/abs/2412.14470) · [code](https://github.com/thu-coai/Agent-SafetyBench)
-
-### OpenAgentSafety `T3`
-Evaluates agent safety in realistic multi-tool environments across 350+ executable tasks and 8 risk categories, using real tools (browser, shell, file system) rather than simulated ones. · **350+ tasks**
-
-> ICLR 2026; one of the broadest executable agent-safety benchmarks grounded in real tool execution rather than emulation.
-
-[paper](https://arxiv.org/abs/2507.06134) · [code](https://github.com/sani903/OpenAgentSafety)
-
-### SafeArena `T3`
-A web agent operating in self-hosted WebArena sites is given matched safe and harmful tasks (misinformation, illegal activity, harassment, cybercrime, social bias) and is scored on its compliance with the harmful requests. · **500 tasks (250 safe + 250 harmful) across 5 harm categories tasks**
-
-> First benchmark focused on deliberate misuse of autonomous web agents (McGill-NLP, 2025); has a public leaderboard and found GPT-4o completed ~35% of harmful tasks.
-
-[paper](https://arxiv.org/abs/2503.04957) · [code](https://github.com/McGill-NLP/safearena) · [leaderboard](https://safearena.github.io/)
 
 ---
 
@@ -697,27 +514,6 @@ Asks agents to perform economically valuable, expert-sourced work across 55 occu
 > Berkeley RDI flagship (directed by Dawn Song); an economically-grounded successor in spirit to GAIA, mapping agent capability to real industry work.
 
 [paper](https://arxiv.org/abs/2606.05405) · [code](https://github.com/rdi-berkeley/agents-last-exam) · [leaderboard](https://agents-last-exam.org/)
-
-### AssistantBench `T2`
-Solve 214 realistic, time-consuming open-web tasks (e.g. monitoring real-estate markets, finding nearby businesses) that require navigating live websites, with automatically verifiable answers. · **214 tasks**
-
-> Allen Institute/Bar-Ilan/Penn benchmark for realistic web assistance; exposed that no model exceeded ~25 accuracy and SOTA web agents scored near zero, motivating the SeePlanAct agent.
-
-[paper](https://arxiv.org/abs/2407.15711) · [code](https://github.com/oriyor/assistantbench) · [leaderboard](https://assistantbench.github.io/)
-
-### Gaia2 (Meta Agents Research Environments / ARE) `T3`
-Operate across 800 scenarios in 10 simulated 'universes' with 11 apps, handling asynchronous, evolving environments under time constraints, ambiguity, noise, and multi-agent collaboration. · **800 tasks**
-
-> Meta's 2025 successor to GAIA built on the ARE platform; introduces dynamic/asynchronous environments measuring execution, search, adaptability, temporal reasoning, ambiguity, and multi-agent capabilities. Actively maintained leaderboard.
-
-[paper](https://arxiv.org/abs/2509.17158) · [code](https://github.com/facebookresearch/meta-agents-research-environments) · [leaderboard](https://huggingface.co/spaces/meta-agents-research-environments/leaderboard)
-
-### CRMArena / CRMArena-Pro `T3`
-Perform expert-validated professional CRM tasks (service, sales, configure-price-quote) over a populated Salesforce org with tens of thousands of records, across single- and multi-turn interactions. · **19 task types (CRMArena-Pro) tasks**
-
-> Salesforce AI Research's enterprise-grounded benchmark; widely cited finding that top agents reach only ~58% single-turn and drop to ~35% multi-turn success. CRMArena (arXiv:2411.02305) is the original; Pro is the expanded B2B/B2C version.
-
-[paper](https://arxiv.org/abs/2505.18878) · [code](https://github.com/SalesforceAIResearch/CRMArena) · [leaderboard](https://huggingface.co/spaces/Salesforce/CRMArena-Leaderboard)
 
 ---
 
