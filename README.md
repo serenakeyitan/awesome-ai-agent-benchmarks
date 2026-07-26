@@ -1,6 +1,6 @@
 # Awesome AI Agent Benchmarks
 
-A curated, dimension-organized index of **52 benchmarks** for evaluating LLM-based AI agents — with **how to actually run each one**.
+A curated, dimension-organized index of **53 benchmarks** for evaluating LLM-based AI agents — with **how to actually run each one**.
 
 Evaluating AI agents is hard, and *running* the benchmarks is half the battle: each one has its own setup, and you bring your own agent. This list organizes the benchmarks that matter across **10 capability dimensions**, ranks them by influence tier, and — for every entry — tells you the setup, a run command, and how heavy it is to stand up. Start with a unified harness, pick a 🟢 light benchmark, and go.
 
@@ -13,7 +13,7 @@ Evaluating AI agents is hard, and *running* the benchmarks is half the battle: e
 - [How to run these benchmarks](#how-to-run-these-benchmarks)
 - [The index (all benchmarks, by influence tier)](#the-index)
 - [Coding & Software Engineering](#coding--software-engineering) (8)
-- [Web Browsing & Navigation](#web-browsing--navigation) (7)
+- [Web Browsing & Navigation](#web-browsing--navigation) (8)
 - [Computer Use (GUI / OS)](#computer-use-gui--os) (4)
 - [Tool Use & Function Calling](#tool-use--function-calling) (5)
 - [Reasoning & Planning](#reasoning--planning) (4)
@@ -110,12 +110,13 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [OS-Harm](https://github.com/tml-epfl/os-harm) | Safety | Measures the safety of computer-use (GUI) agents across 15… | 🔴 heavy | 67 |
 | [BountyBench](https://github.com/cybench/BountyBench) | Cybersecurity | Grounds agent cyber capability in real money: 25 real syst… | 🔴 heavy | 9 |
 
-### Tier 3 — emerging / niche  (8)
+### Tier 3 — emerging / niche  (9)
 
 | Benchmark | Dimension | What it tests | Run | Stars |
 |---|---|---|---|---:|
 | [tau2-bench (τ²-bench)](https://github.com/sierra-research/tau2-bench) | Tool Use | Extends tau-bench to dual-control settings where both the… | 🟡 medium | 1.4k |
 | [WindowsAgentArena (WAA)](https://github.com/microsoft/WindowsAgentArena) | Computer Use | Complete 154 multi-step Windows-OS tasks across real apps… | 🔴 heavy | 874 |
+| [ClawBench](https://github.com/reacher-z/ClawBench) | Web | Complete 283 everyday online tasks across live websites… | 🟡 medium | 525 |
 | [ScreenSpot-Pro](https://github.com/likaixin2000/ScreenSpot-Pro-GUI-Grounding) | Computer Use | Locate tiny, cluttered UI targets from instructions on ult… | 🟢 light | 378 |
 | [Agent Security Bench (ASB)](https://github.com/agiresearch/ASB) | Safety | Across 10 agent scenarios (e-commerce, finance, autonomous… | 🟡 medium | 264 |
 | [ToolSandbox](https://github.com/apple/ToolSandbox) | Tool Use | A stateful, conversational benchmark with an on-policy LLM… | 🟢 light | 261 |
@@ -346,6 +347,22 @@ git clone https://github.com/OSU-NLP-Group/Online-Mind2Web && pip install -r req
 <sub>⚠️ Live-web benchmark on 136 real websites; WebJudge auto-eval (~85% human agreement) or manual evaluation available; regularly updated (36 tasks refreshed Nov 2025 due to website changes); requires robust error handling for real web volatility</sub>
 
 [paper](https://arxiv.org/abs/2504.01382) · [code](https://github.com/OSU-NLP-Group/Online-Mind2Web) · [leaderboard](https://huggingface.co/datasets/osunlp/Online-Mind2Web)
+
+### ClawBench `T3` 🟡
+Complete 283 everyday online tasks across live websites using an instrumented browser, with success evaluated through request interception and an agentic judge. · **283 tasks**
+
+> Open-source end-to-end browser-agent benchmark spanning V1 (153 tasks across 144 sites) and V2 (130 tasks), with five-layer execution traces for inspection and re-grading.
+
+**Run:** 🟡 medium · setup: Python 3.11+, uv, Docker or Podman, and model API credentials · ~task-dependent; a full-suite run can take hours to days
+
+```bash
+git clone https://github.com/reacher-z/ClawBench.git && cd ClawBench
+cp models/models.example.yaml models/models.yaml  # add model credentials
+./run.sh
+```
+<sub>⚠️ Runs against live websites, so site drift and anti-bot controls can affect results; isolated containers record video, screenshots, HTTP traffic, browser actions, and agent messages.</sub>
+
+[paper](https://arxiv.org/abs/2604.08523) · [code](https://github.com/reacher-z/ClawBench) · [website](https://claw-bench.com/)
 
 ---
 
