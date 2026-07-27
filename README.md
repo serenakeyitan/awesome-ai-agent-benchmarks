@@ -13,7 +13,7 @@ Evaluating AI agents is hard, and *running* the benchmarks is half the battle: e
 - [How to run these benchmarks](#how-to-run-these-benchmarks)
 - [The index (all benchmarks, by influence tier)](#the-index)
 - [Coding & Software Engineering](#coding--software-engineering) (8)
-- [Web Browsing & Navigation](#web-browsing--navigation) (7)
+- [Web Browsing & Navigation](#web-browsing--navigation) (8)
 - [Computer Use (GUI / OS)](#computer-use-gui--os) (4)
 - [Tool Use & Function Calling](#tool-use--function-calling) (5)
 - [Reasoning & Planning](#reasoning--planning) (4)
@@ -94,7 +94,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [SciCode](https://github.com/scicode-bench/SciCode) | Science | Given a real scientific research problem decomposed into s… | 🟢 light | 208 |
 | [GAIA](https://arxiv.org/abs/2311.12983) | Web | Answer real-world assistant questions that require multi-s… | 🟢 light | — |
 
-### Tier 2 — widely used  (11)
+### Tier 2 — widely used  (12)
 
 | Benchmark | Dimension | What it tests | Run | Stars |
 |---|---|---|---|---:|
@@ -106,6 +106,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [CVE-Bench](https://github.com/uiuc-kang-lab/cve-bench) | Cybersecurity | Tests whether an agent can exploit real-world web-applicat… | 🟡 medium | 240 |
 | [AgentPoison](https://github.com/AI-secure/AgentPoison) | Safety | Red-teams a RAG/memory-augmented LLM agent by poisoning it… | 🔴 heavy | 222 |
 | [Online-Mind2Web](https://github.com/OSU-NLP-Group/Online-Mind2Web) | Web | Execute 300 realistic tasks on 136 live websites in an onl… | 🟡 medium | 182 |
+| [ClawBench](https://github.com/reacher-z/ClawBench) | Web | Evaluates browser agents on everyday multi-step tasks across 144 live websites, with request-level outcome checks and execution traces. | 🔴 heavy | 181 |
 | [ScienceAgentBench](https://github.com/OSU-NLP-Group/ScienceAgentBench) | Science | Given a real scientific data-analysis task, the agent must… | 🟡 medium | 141 |
 | [OS-Harm](https://github.com/tml-epfl/os-harm) | Safety | Measures the safety of computer-use (GUI) agents across 15… | 🔴 heavy | 67 |
 | [BountyBench](https://github.com/cybench/BountyBench) | Cybersecurity | Grounds agent cyber capability in real money: 25 real syst… | 🔴 heavy | 9 |
@@ -346,6 +347,19 @@ git clone https://github.com/OSU-NLP-Group/Online-Mind2Web && pip install -r req
 <sub>⚠️ Live-web benchmark on 136 real websites; WebJudge auto-eval (~85% human agreement) or manual evaluation available; regularly updated (36 tasks refreshed Nov 2025 due to website changes); requires robust error handling for real web volatility</sub>
 
 [paper](https://arxiv.org/abs/2504.01382) · [code](https://github.com/OSU-NLP-Group/Online-Mind2Web) · [leaderboard](https://huggingface.co/datasets/osunlp/Online-Mind2Web)
+
+### ClawBench `T2` 🔴
+Evaluate browser agents on everyday, multi-step online tasks such as travel, shopping, forms, email, and job workflows across **144 live websites** (**153 V1 tasks**, with a **130-task V2** corpus). Each run records request-level outcome signals alongside screenshots, browser actions, HTTP traffic, and agent messages for reproducible end-to-end analysis.
+
+> Open-source benchmark with a Dockerized runner, configurable agent harnesses, a live leaderboard, and downloadable execution traces. The benchmark targets realistic long-horizon browser work rather than isolated webpage question answering.
+
+**Run:** 🔴 heavy · setup: Docker or Podman + Python 3.11+ + `uv` + a configured model API key · ~single tasks vary by website and agent; batch evaluation is parallelizable
+
+```bash
+uv run clawbench-run test-cases/v1/<case-dir> <model-name> --harness openclaw
+```
+
+[paper](https://arxiv.org/abs/2604.08523) · [code](https://github.com/reacher-z/ClawBench) · [project](https://claw-bench.com/) · [leaderboard](https://huggingface.co/spaces/TIGER-Lab/ClawBench)
 
 ---
 
