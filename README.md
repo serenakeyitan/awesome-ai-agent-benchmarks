@@ -263,6 +263,17 @@ pip install -r requirements.txt && python evaluate.py --benchmark browsecomp --m
 
 [paper](https://arxiv.org/abs/2504.12516) · [code](https://github.com/openai/simple-evals) · [leaderboard](https://llm-stats.com/benchmarks/browsecomp)
 
+### ClawBench `T2` 🔴
+Evaluate browser and computer-use agents on 283 real-world tasks across 163 live websites, with request interception and five execution-evidence layers. · **283 tasks**
+
+> A live-web benchmark for realistic multi-step interaction, with browser actions, screenshots, recordings, HTTP requests, and agent messages retained for evaluation and diagnosis.
+
+**Run:** 🔴 heavy · setup: Docker, browser runtime, and a configured agent harness · per-task runs are isolated and time-limited
+
+<sub>⚠️ Requires live website access and containerized browser execution; the benchmark records multiple evidence layers in addition to final task outcomes</sub>
+
+[paper](https://arxiv.org/abs/2604.08523) · [code](https://github.com/TIGER-AI-Lab/ClawBench) · [website](https://claw-bench.com/)
+
 ### WebArena `T1` 🔴
 Complete high-level natural-language tasks (e-commerce, forums, GitLab, CMS) end-to-end in self-hosted, fully-functional clones of real websites, scored by execution-based functional correctness. · **812 tasks**
 
