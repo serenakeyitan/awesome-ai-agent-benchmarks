@@ -1,6 +1,6 @@
 # Awesome AI Agent Benchmarks
 
-A curated, dimension-organized index of **52 benchmarks** for evaluating LLM-based AI agents — with **how to actually run each one**.
+A curated, dimension-organized index of **53 benchmarks** for evaluating LLM-based AI agents — with **how to actually run each one**.
 
 Evaluating AI agents is hard, and *running* the benchmarks is half the battle: each one has its own setup, and you bring your own agent. This list organizes the benchmarks that matter across **10 capability dimensions**, ranks them by influence tier, and — for every entry — tells you the setup, a run command, and how heavy it is to stand up. Start with a unified harness, pick a 🟢 light benchmark, and go.
 
@@ -16,7 +16,7 @@ Evaluating AI agents is hard, and *running* the benchmarks is half the battle: e
 - [Web Browsing & Navigation](#web-browsing--navigation) (7)
 - [Computer Use (GUI / OS)](#computer-use-gui--os) (4)
 - [Tool Use & Function Calling](#tool-use--function-calling) (5)
-- [Reasoning & Planning](#reasoning--planning) (4)
+- [Reasoning & Planning](#reasoning--planning) (5)
 - [Multi-Agent](#multi-agent) (4)
 - [Science & Research](#science--research) (4)
 - [Safety, Security & Robustness](#safety-security--robustness) (6)
@@ -110,7 +110,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [OS-Harm](https://github.com/tml-epfl/os-harm) | Safety | Measures the safety of computer-use (GUI) agents across 15… | 🔴 heavy | 67 |
 | [BountyBench](https://github.com/cybench/BountyBench) | Cybersecurity | Grounds agent cyber capability in real money: 25 real syst… | 🔴 heavy | 9 |
 
-### Tier 3 — emerging / niche  (8)
+### Tier 3 — emerging / niche  (9)
 
 | Benchmark | Dimension | What it tests | Run | Stars |
 |---|---|---|---|---:|
@@ -122,6 +122,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [GAMA-Bench](https://github.com/CUHK-ARISE/GAMABench) | Multi-Agent | LLMs act as players in eight classical multi-agent game-th… | 🟢 light | 97 |
 | [MultiAgentBench (MARBLE)](https://github.com/MultiagentBench/MARBLE) | Multi-Agent | LLM agents must coordinate (and in some tasks compete) acr… | 🟢 light | 51 |
 | [Collab-Overcooked](https://github.com/YusaeMeow/Collab-Overcooked) | Multi-Agent | Two LLM agents must cooperate in an extended Overcooked-AI… | 🟢 light | 35 |
+| [Clankdar](https://github.com/hraness/clankdar) | Reasoning | Solve freshly generated small-program puzzles under a deadline; answers scored exactly, signed… | 🟢 light | 1 |
 
 <sub>`*` = star count is for the parent framework, not the benchmark alone. Run difficulty = setup/resource burden, not task hardness.</sub>
 
@@ -542,6 +543,20 @@ conda create -n travelplanner python=3.9 && pip install -r requirements.txt && c
 <sub>⚠️ Requires manual download of 4M-record database from Google Drive (not via pip); test-set eval uses official leaderboard to prevent contamination; GPT-4 conversion step (parsing.py) needed before final evaluation</sub>
 
 [paper](https://arxiv.org/abs/2402.01622) · [code](https://github.com/OSU-NLP-Group/TravelPlanner) · [leaderboard](https://huggingface.co/spaces/osunlp/TravelPlannerLeaderboard)
+
+### Clankdar `T3` 🟢
+Solve a fresh set of small program-evaluation puzzles (written in ALGAL's expression language) within a deadline; every answer is scored exactly against the pinned ALGAL evaluator and the result is signed as a receipt anyone can recheck. · **4 puzzles per check, freshly generated tasks**
+
+> Open-source agent check from Hraness; fresh inputs per run resist memorization, reference answers come from the pinned ALGAL evaluator rather than a judge model, and the signed receipt is independently verifiable. The default `algal-floor-v1` policy requires 3 of 4 answers within 180 seconds.
+
+**Run:** 🟢 light · setup: git clone + bun install (Bun 1.3+) · ~seconds per check; 180-second deadline under the default policy
+
+```bash
+bun run try --solver ./my-solver.mjs
+```
+<sub>⚠️ You bring the solver: export solve(challenges, signal) mapping each challengeId to an answer string; the built-in demo solver does not measure a model. The hosted API is invite-only staging; the local flow needs no credentials.</sub>
+
+[code](https://github.com/hraness/clankdar) · [site](https://clankdar.com) · [leaderboard](https://clankdar.com/benchmark/)
 
 ---
 
