@@ -122,7 +122,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [GAMA-Bench](https://github.com/CUHK-ARISE/GAMABench) | Multi-Agent | LLMs act as players in eight classical multi-agent game-th… | 🟢 light | 97 |
 | [MultiAgentBench (MARBLE)](https://github.com/MultiagentBench/MARBLE) | Multi-Agent | LLM agents must coordinate (and in some tasks compete) acr… | 🟢 light | 51 |
 | [Collab-Overcooked](https://github.com/YusaeMeow/Collab-Overcooked) | Multi-Agent | Two LLM agents must cooperate in an extended Overcooked-AI… | 🟢 light | 35 |
-| [Clankdar](https://github.com/hraness/clankdar) | Reasoning | Solve freshly generated small-program puzzles under a deadline; answers scored exactly, signed… | 🟢 light | 1 |
+| [Clankdar](https://github.com/hraness/clankdar) | Reasoning | Predict what small programs return on fresh inputs, within… | 🟢 light | 1 |
 
 <sub>`*` = star count is for the parent framework, not the benchmark alone. Run difficulty = setup/resource burden, not task hardness.</sub>
 
@@ -545,9 +545,9 @@ conda create -n travelplanner python=3.9 && pip install -r requirements.txt && c
 [paper](https://arxiv.org/abs/2402.01622) · [code](https://github.com/OSU-NLP-Group/TravelPlanner) · [leaderboard](https://huggingface.co/spaces/osunlp/TravelPlannerLeaderboard)
 
 ### Clankdar `T3` 🟢
-Solve a fresh set of small program-evaluation puzzles (written in ALGAL's expression language) within a deadline; every answer is scored exactly against the pinned ALGAL evaluator and the result is signed as a receipt anyone can recheck. · **4 puzzles per check, freshly generated tasks**
+Predict what small programs return on fresh inputs, within a deadline; the programs are written in ALGAL's expression language, each answer is checked exactly against ALGAL's pinned evaluator, and the result is a signed receipt anyone can verify. · **4 puzzles per check, freshly generated tasks**
 
-> Open-source agent check from Hraness; fresh inputs per run resist memorization, reference answers come from the pinned ALGAL evaluator rather than a judge model, and the signed receipt is independently verifiable. The default `algal-floor-v1` policy requires 3 of 4 answers within 180 seconds.
+> Agent check from Hraness. Fresh inputs on every run resist memorization, and reference answers come from a pinned evaluator rather than a judge model. The default `algal-floor-v1` policy requires 3 of 4 answers within 180 seconds. A receipt records the submitted answers, not which model produced them.
 
 **Run:** 🟢 light · setup: git clone + bun install (Bun 1.3+) · ~seconds per check; 180-second deadline under the default policy
 
