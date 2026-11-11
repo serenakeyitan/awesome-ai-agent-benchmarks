@@ -1,6 +1,6 @@
 # Awesome AI Agent Benchmarks
 
-A curated, dimension-organized index of **52 benchmarks** for evaluating LLM-based AI agents — with **how to actually run each one**.
+A curated, dimension-organized index of **53 benchmarks** for evaluating LLM-based AI agents — with **how to actually run each one**.
 
 Evaluating AI agents is hard, and *running* the benchmarks is half the battle: each one has its own setup, and you bring your own agent. This list organizes the benchmarks that matter across **10 capability dimensions**, ranks them by influence tier, and — for every entry — tells you the setup, a run command, and how heavy it is to stand up. Start with a unified harness, pick a 🟢 light benchmark, and go.
 
@@ -21,7 +21,7 @@ Evaluating AI agents is hard, and *running* the benchmarks is half the battle: e
 - [Science & Research](#science--research) (4)
 - [Safety, Security & Robustness](#safety-security--robustness) (6)
 - [Cybersecurity (Offensive)](#cybersecurity-offensive) (4)
-- [General & Real-World Work](#general--real-world-work) (6)
+- [General & Real-World Work](#general--real-world-work) (7)
 
 ---
 
@@ -110,7 +110,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [OS-Harm](https://github.com/tml-epfl/os-harm) | Safety | Measures the safety of computer-use (GUI) agents across 15… | 🔴 heavy | 67 |
 | [BountyBench](https://github.com/cybench/BountyBench) | Cybersecurity | Grounds agent cyber capability in real money: 25 real syst… | 🔴 heavy | 9 |
 
-### Tier 3 — emerging / niche  (8)
+### Tier 3 — emerging / niche  (9)
 
 | Benchmark | Dimension | What it tests | Run | Stars |
 |---|---|---|---|---:|
@@ -122,6 +122,7 @@ Every benchmark, ranked by **influence tier**, then by GitHub stars. Tier reflec
 | [GAMA-Bench](https://github.com/CUHK-ARISE/GAMABench) | Multi-Agent | LLMs act as players in eight classical multi-agent game-th… | 🟢 light | 97 |
 | [MultiAgentBench (MARBLE)](https://github.com/MultiagentBench/MARBLE) | Multi-Agent | LLM agents must coordinate (and in some tasks compete) acr… | 🟢 light | 51 |
 | [Collab-Overcooked](https://github.com/YusaeMeow/Collab-Overcooked) | Multi-Agent | Two LLM agents must cooperate in an extended Overcooked-AI… | 🟢 light | 35 |
+| [EC²-Bench (EC2-Bench)](https://github.com/OpenBMB/EC2-Bench) | General | Execute long-horizon digital-workspace tasks with edge-cloud collaboration, measuring completion, cloud cost, and privacy exposure. | 🟡 medium | 22 |
 
 <sub>`*` = star count is for the parent framework, not the benchmark alone. Run difficulty = setup/resource burden, not task hardness.</sub>
 
@@ -908,6 +909,20 @@ provider-specific YAML config required; see provider quick-start guides (gcp-vm,
 <sub>⚠️ Requires professional software licenses in sandbox; supports elastic batch scaling; multiple infrastructure options available</sub>
 
 [paper](https://arxiv.org/abs/2606.05405) · [code](https://github.com/rdi-berkeley/agents-last-exam) · [leaderboard](https://agents-last-exam.org/)
+
+### EC²-Bench (EC2-Bench) `T3` 🟡
+Complete executable digital-workspace tasks with a local edge model and cloud assistance, jointly evaluating task performance, cloud cost, and privacy exposure. · **128 tasks; 100 with privacy annotations**
+
+> Research preprint analysing query routing, per-step routing, edge-controlled delegation, and edge-controlled advisory for long-horizon agent execution.
+
+**Run:** 🟡 medium · setup: Docker + Python 3.13 + downloaded container image/workspaces + configured model endpoints and judge credentials · ~task- and model-dependent
+
+```bash
+python3 eval/run_batch.py --category EC2Bench --parallel 16 --repeat 3 --edge-model vllm/Qwen/Qwen3.5-27B --models-config my_api.json --output-dir output/edge_only/qwen3.5-27b
+```
+<sub>Download the image tarball and task workspaces from Hugging Face, load the image with Docker, configure endpoints/keys, and prepare task assets as described in the official Quick Start. The command above is the edge-only baseline; routing and advisory modes also need a cloud endpoint.</sub>
+
+[paper](https://arxiv.org/abs/2610.17816) · [code](https://github.com/OpenBMB/EC2-Bench) · [project](https://passionate11.github.io/ec2-bench-project-page/)
 
 ---
 
